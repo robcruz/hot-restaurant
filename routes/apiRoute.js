@@ -1,6 +1,6 @@
 const express = require('express');
-const tables = require('../data/tables.json');
-const waitlist = require('../data/waitlist.json');
+const tables = require('../data/tableData');
+const waitlist = require('../data/waitinglistData');
 
 const router = express.Router();
 
