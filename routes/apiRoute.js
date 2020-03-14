@@ -5,7 +5,7 @@ const waitingList = require('../data/waitingList.json');
 const router = express.Router();
 
 
-router.get('/reservations', async (req, res) => {
+router.get('/tables', async (req, res) => {
   res.json(tables);
 });
 
@@ -19,7 +19,8 @@ router.post('/reservation', async (req, res) => {
       uniqueID,
       customerName,
       customerEmail,
-      customerPhone
+      customerPhone,
+      partySize
     }
   } = req;
 
@@ -27,7 +28,8 @@ router.post('/reservation', async (req, res) => {
     uniqueID,
     customerName,
     customerEmail,
-    customerPhone
+    customerPhone,
+    partySize
   };
 
   if (tables.length < 5) {
