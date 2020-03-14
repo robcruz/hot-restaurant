@@ -87,19 +87,19 @@
     let customerID = document.querySelector("#reserve-email");
     let phoneNumber = document.querySelector("#reserve-unique-id");
 
-    submit.addEventListener(onclick, event => {
+    submit.addEventListener('click', event => {
         event.preventDefault();
 
         let reservation = {
-            customerName: customerName.value.,
-            customerEmail: customerEmail.value,
-            customerID: customerID.value,
-            phoneNumber: phoneNumber.value
+            customerName: customerName.value.trim(),
+            customerEmail: customerEmail.value.trim(),
+            uniqueID: customerID.value.trim(),
+            customerPhone: phoneNumber.value.trim()
         }
 
         console.log(reservation);
 
-        $.post("/api/tables", reservation, data => {
+        $.post("/api/reservation", reservation, data => {
                 // If a table is available... tell user they are booked.
                 if (data) {
                     alert("Yay! You are officially booked!");
