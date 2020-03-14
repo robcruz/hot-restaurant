@@ -5,15 +5,15 @@ const waitingList = require('../data/waitingList.json');
 const router = express.Router();
 
 
-router.get('/tables', async (req, res) => {
+router.get('/tables', (req, res) => {
   res.json(tables);
 });
 
-router.get('/waitinglist', async (req, res) => {
+router.get('/waitinglist', (req, res) => {
   res.json(waitingList);
 });
 
-router.post('/reservation', async (req, res) => {
+router.post('/reservation', (req, res) => {
   const {
     body: {
       uniqueID,
