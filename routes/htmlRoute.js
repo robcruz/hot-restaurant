@@ -7,4 +7,7 @@ module.exports = (app) => {
   app.get('/table', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public', 'table.html'));
   })
+  app.get('/reserve', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'public', 'reserve.html'));
+  })
 };
