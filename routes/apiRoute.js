@@ -1,6 +1,6 @@
 const express = require('express');
-const tables = require('../data/tableData');
-const waitlist = require('../data/waitinglistData');
+const tables = require('../data/tables');
+const waitlist = require('../data/waitlist');
 
 const router = express.Router();
 
@@ -31,13 +31,15 @@ router.post('/reservation', (req, res) => {
     partySize
   };
 
-  if (tables.length < 5) {
+  const haveCapacity = tables.length < 5;
+
+  if (haveCapacity) {
     tables.push(table);
-    res.send('Table Reserved!');
   } else {
     waitlist.push(table);
-    res.send('Tables full! Added to waitlist!');
   }
+
+  res.send(haveCapacity);
 })
 
 module.exports = router;
