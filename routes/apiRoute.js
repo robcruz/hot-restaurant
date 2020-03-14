@@ -1,16 +1,15 @@
 const express = require('express');
 const tables = require('../data/tables.json');
-const waitingList = require('../data/waitingList.json');
+const waitlist = require('../data/waitlist.json');
 
 const router = express.Router();
-
 
 router.get('/tables', (req, res) => {
   res.json(tables);
 });
 
-router.get('/waitinglist', (req, res) => {
-  res.json(waitingList);
+router.get('/waitlist', (req, res) => {
+  res.json(waitlist);
 });
 
 router.post('/reservation', (req, res) => {
@@ -36,7 +35,7 @@ router.post('/reservation', (req, res) => {
     tables.push(table);
     res.send('Table Reserved!');
   } else {
-    waitingList.push(table);
+    waitlist.push(table);
     res.send('Tables full! Added to waitlist!');
   }
 })
